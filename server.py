@@ -19,9 +19,3 @@ def create_server():
         return {"lmtd": calc_lmtd(thi, tho, tci, tco)}
 
     return server
-
-if __name__ == "__main__":
-    # 로컬 테스트용
-    srv = create_server()
-    print("Running locally…")
-    srv.run()
