@@ -2,7 +2,7 @@
 requires = ["uv_build>=0.8.15,<0.9.0"]
 build-backend = "uv_build"
 [project]
-name = "whether"
+name = "lmtd"
 version = "0.1.0"
 description = "Whether MCP server"
 readme = "README.md"
