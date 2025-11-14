@@ -17,4 +17,4 @@ dev = "smithery.cli.dev:main"
 playground = "smithery.cli.playground:main"
 # Points to your server function
 [tool.smithery] 
-server = "server:create_server"
+server = "lmtd.server:create_server"
