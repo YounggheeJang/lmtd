@@ -1,6 +1,1 @@
-name: lmtd-calculator
-version: 1.0.0
-description: "LMTD calculator MCP server"
-hosting:
-  python:
-    entrypoint: server:create_server
+runtime: "python"
