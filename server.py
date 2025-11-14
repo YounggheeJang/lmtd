@@ -1,12 +1,20 @@
-import math
-from smithery.server import Server, tool
-from lmtd import calc_lmtd
+from mcp.server.fastmcp import Context, FastMCP
+from smithery.decorators import smithery
+from pydantic import BaseModel, Field
 
-def create_server():
-    server = Server(name="lmtd-calculator")
+class ConfigSchema(BaseModel):
+    unit: str = Field("celsius", description="Temperature unit (celsius or fahrenheit)")
 
-    @tool(server)
-    def compute_lmtd(thi: float, tho: float, tci: float, tco: float):
-        return {"lmtd": calc_lmtd(thi, tho, tci, tco)}
+@smithery.server(config_schema=ConfigSchema) 
+def create_server(): 
+
+    server = FastMCP(name="lmtd Server")
+
+    @server.tool()
+    def get_weather(city: str, ctx: Context) -> str: 
+        session_config = ctx.session_config 
+        unit = session_config.unit
+        formatted_temp = f"22°C" if unit == "celsius" else "72°F"
+        return f"Weather in {city}: {formatted_temp}"
 
     return server
