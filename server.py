@@ -8,7 +8,7 @@ class ConfigSchema(BaseModel):
 @smithery.server(config_schema=ConfigSchema) 
 def create_server(): 
 
-    server = FastMCP(name="Weather Server")
+    server = FastMCP(name="lmtd Server")
 
     @server.tool()
     def get_weather(city: str, ctx: Context) -> str: 
