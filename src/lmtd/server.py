@@ -20,15 +20,6 @@ def create_server():
     server = FastMCP(name="lmtd Server")
 
     @server.tool()
-    def get_weather(city: str, ctx: Context) -> str:
-        """
-        기존 날씨 툴: 세션 설정의 unit을 참조하여 포맷된 온도 반환
-        """
-        unit = ctx.session_config.unit
-        formatted_temp = "22°C" if unit == "celsius" else "72°F"
-        return f"Weather in {city}: {formatted_temp}"
-
-    @server.tool()
     def compute_lmtd(thi: float, tho: float, tci: float, tco: float, flow_type: Optional[Literal["counter", "parallel"]] = "counter", ctx: Optional[Context] = None) -> dict:
         """
         LMTD 계산기 (Tool)
